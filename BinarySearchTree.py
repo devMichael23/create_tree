@@ -11,10 +11,20 @@ class Node:
     def __str__(self):
         return self.data
 
-    def hasLeftNode(self):
+    def __iter__(self):
+        if self:
+            if self.hasLeftNode():
+                for elem in self.left:
+                    yield elem
+            yield self.data
+            if self.hasRightNode():
+                for elem in self.right:
+                    yield elem
+
+    def hasLeftNode(self)->bool:
         return self.left
 
-    def hasRightNode(self):
+    def hasRightNode(self)->bool:
         return self.right
 
     def isLeftChild(self):
@@ -63,6 +73,17 @@ class BinarySearchTree:
 
     def __getitem__(self, key):
         return self.get(key)
+
+    def __iter__(self):
+        if self.root:
+            current = self.root
+            if current.hasLeftNode():
+                for elem in current.left:
+                    yield elem
+            yield self.root.data
+            if current.hasRightNode():
+                for elem in current.right:
+                    yield elem
 
     def __contains__(self, key):
         if self._get(key, self.root):
@@ -137,6 +158,9 @@ class BinarySearchTree:
             self.size = self.size - 1
         else:
             raise KeyError('Error, key not in tree')
+
+    def getRoot(self):
+        return self.root
 
     def spliceOut(self):
         current = None
@@ -218,3 +242,8 @@ with open("tree.txt", "r") as file:
         data = int(file.readline())
         tree[i] = data
 
+def printTree(tree:BinarySearchTree):
+    for i in tree:
+        print(i)
+
+printTree(tree)
