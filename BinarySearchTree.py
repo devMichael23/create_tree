@@ -74,17 +74,6 @@ class BinarySearchTree:
     def __getitem__(self, key):
         return self.get(key)
 
-    def __iter__(self):
-        if self.root:
-            current = self.root
-            if current.hasLeftNode():
-                for elem in current.left:
-                    yield elem
-            yield self.root.data
-            if current.hasRightNode():
-                for elem in current.right:
-                    yield elem
-
     def __contains__(self, key):
         if self._get(key, self.root):
             return True
@@ -243,7 +232,7 @@ with open("tree.txt", "r") as file:
         tree[i] = data
 
 def printTree(tree:BinarySearchTree):
-    for i in tree:
+    for i in tree.getRoot():
         print(i)
 
 printTree(tree)
