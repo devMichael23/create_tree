@@ -1,13 +1,19 @@
 class BKT:
-    def __init__(self):
-        pass
-
     def bkt(self, str):
-        pass
+        count = 0
+        lst = [0]
+        for i in str1:
+            if i == '(':
+                count += 1
+                lst.append(count)
+            elif i == ')':
+                count -= 1
+                lst.append(count)
+        return max(lst)
 
 
-str = "A(B(E(G)F(LM))C)"
-lst1 = str.split('(')
-lst2 = str.split(')')
-print(lst1)
-print(lst2)
+str = "A(B(I)(J))(C(H))(D(E)(F(K))(G))"
+str1 =  "A(B(E(G)F(LM))C)"
+bkt = BKT()
+print(bkt.bkt(str))
+print(bkt.bkt(str1))
