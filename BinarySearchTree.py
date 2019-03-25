@@ -114,9 +114,9 @@ class BinarySearchTree:
         self.size += 1
 
     def _set(self,key, data, current):
-        if key < current.key:
+        if data < current.data:
             if current.hasLeftNode():
-                self._set(key,data,current.left)
+                self._set(key, data, current.left)
             else:
                 current.left = Node(key, data, parent=current)
         else:
