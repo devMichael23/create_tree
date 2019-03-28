@@ -94,17 +94,11 @@ class BinarySearchTree:
     def __delitem__(self, key):
        self.delete(key)
 
+    def __repr__(self):
+        return self.bracketPrint(self.root)
+
     def __str__(self):
-        current = self.root
-        while current:
-            print(' '.join(str(node) for node in current))
-            nextLevel = list()
-            for n in current:
-                if n.left:
-                    nextLevel.append(n.left)
-                if n.right:
-                    nextLevel.append(n.right)
-                current = nextLevel
+        return self.bracketPrint(self.root)
 
     def set(self,key, data):
         if self.root:
@@ -253,10 +247,6 @@ with open("tree.txt", "r") as file:
         data = int(file.readline())
         tree[i] = data
 
-def printTree(tree:BinarySearchTree):
-    for i in tree:
-        print(i)
-
 printTree(tree)
 print()
-print(tree.bracketPrint(tree.getRoot()))
+print(tree)
