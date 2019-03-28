@@ -247,6 +247,5 @@ with open("tree.txt", "r") as file:
         data = int(file.readline())
         tree[i] = data
 
-printTree(tree)
 print()
 print(tree)
