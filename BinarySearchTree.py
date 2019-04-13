@@ -27,6 +27,12 @@ class Node:
     def hasRightNode(self)->bool:
         return self.right
 
+    def getRightNode(self):
+        return self.right
+
+    def getLeftNode(self):
+        return self.left
+
     def isLeftChild(self):
         return self.parent and self.parent.left == self
 
