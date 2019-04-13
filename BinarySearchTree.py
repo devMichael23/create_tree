@@ -253,5 +253,6 @@ with open("tree.txt", "r") as file:
         data = int(file.readline())
         tree[i] = data
 
-print()
+print("\n1-e задание:")
 print(tree)
+print("\n\n")
